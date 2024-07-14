@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+
+
+{% block content %}
+
+<h1 class="text-center">PRODUCTOS</h1>
+<br>
+
+<div class="container">
+    <div style="float: right;">
+        {% include "carro/widget.html" %}
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <!--INICIO-CARD-PRODUCTOS-->
+        {% for servicio in servicios %}
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="row g-0 vistaProducto">
+                    <div class="col-md-4 vistaProducto">
+                        <img src="{{servicio.imagen.url}}" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title">{{servicio.titulo}}</h5>
+                        <h1 class="text-primary">Precio: <span class="precio"> ${{servicio.precio}}</span></h1>
+                        <p class="card-text"><small class="text-body-secondary">{{servicio.contenido}}</small></p>
+                        <div class="d-flex justify-content-left ">
+                            <a href="{% url 'carro:agregar' servicio.id %}" class="btn btn-success">Añadir al carro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!--FIN-CARD-PRODUCTOS-->
+    </div>
+</div>
+
+
+{% endblock %}

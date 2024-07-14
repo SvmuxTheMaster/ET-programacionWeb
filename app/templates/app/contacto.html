@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'app/css/styleContacto.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<!--INICIO-FORMULARIO-DE-CONTACTO-->
+<div class="container">
+    <div class="formBox txt">
+        <h1>Envianos un mensaje</h1>
+        <img src="{% static 'app/img/brandContacto.jpg' %}">
+        <form id="formLogin">
+            <div class="mb-3">
+                <label for="correo" class="form-label">Direccion de correo:</label>
+                <input type="text" class="form-control" id="correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje:</label>
+                <textarea class="form-control" id="mensaje" placeholder="Dejanos tu mensaje" required></textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input type="submit" id="btnIngresar" value="Ingresar" class="boton" href="{% url 'inicio' %}">
+            </div>
+            <br>
+            <p id="error" style=" color: white; text-align: center;"></p>
+        </form>
+    </div>
+</div>
+<!--FIN-FORMULARIO-DE-CONTACTO-->
+
+
+{% endblock %}
