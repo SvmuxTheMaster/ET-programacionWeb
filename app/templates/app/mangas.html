@@ -1,4 +1,10 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'app/css/styleProductos.css' %}">
+{% endblock %}
 
 
 {% block content %}
@@ -11,6 +17,7 @@
 
     </div>
 </div>
+
 
 <div class="container">
     <div class="row">
@@ -40,7 +47,6 @@
         <!--FIN-CARD-PRODUCTOS-->
     </div>
 </div>
-
 
 
 {% endblock %}

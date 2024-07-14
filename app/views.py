@@ -12,6 +12,21 @@ def inicio(request):
     return render(request, 'app/inicio.html', {"servicios" : servicios})
 
 
+def marvel(request):
+    servicios = Servicio.objects.filter(categoria = 'marvel_comics')
+    return render(request, 'app/marvel.html', {'servicios' : servicios})
+
+
+def dc(request):
+    servicios = Servicio.objects.filter(categoria = 'dc_comics')
+    return render(request, 'app/dc.html', {'servicios' : servicios})
+
+
+def mangas(request):
+    servicios = Servicio.objects.filter(categoria = 'mangas')
+    return render(request, 'app/mangas.html', {'servicios' : servicios})
+
+
 def contacto(request):
     return render(request, 'app/contacto.html')
 

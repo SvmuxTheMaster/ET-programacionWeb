@@ -32,25 +32,25 @@
                             <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">Marvel</a>
+                            <a class="nav-link mx-lg-2" href="{% url 'Marvel' %}">Marvel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">DC</a>
+                            <a class="nav-link mx-lg-2" href="{% url 'DC' %}">DC</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#">MANGAS</a>
+                            <a class="nav-link mx-lg-2" href="{% url 'Mangas' %}">MANGAS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-2" href="{% url 'contacto' %}">Contacto</a>
                         </li>
                         {% if request.user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="{% url 'salir' %}">Salir/ Bienvenido {{ user.username | upper }}</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'salir' %}">Salir/ Bienvenido {{ user.username | upper }}</a>
+                        </li>
                         {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="{% url 'login' %}">Login</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'login' %}">Login</a>
+                        </li>
                         {% endif %}
                     </ul>
                 </div>
@@ -89,6 +89,7 @@
     </div>
     <!--FIN-CAROUSEL-->
     <br>
+
 
     {% block content %}
 
