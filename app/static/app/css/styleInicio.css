@@ -13,6 +13,10 @@
     color: white;
 }
 
+body{
+    background-color: rgba(189, 16, 4, 0.824)
+}
+
 footer{
     background-color: rgb(36, 162, 238);
 }
