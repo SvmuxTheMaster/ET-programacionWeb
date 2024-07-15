@@ -2,6 +2,13 @@
 {% load static %}
 
 
+{% block title %}
+
+Marvel Comics Sharingann 
+
+{% endblock %}
+
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'app/css/styleProductos.css' %}">
 {% endblock %}
@@ -23,9 +30,9 @@
     <div class="row">
         <!--INICIO-CARD-PRODUCTOS-->
         {% for servicio in servicios %}
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3" data-id="{{ servicio.id }}">
             <div class="card h-100">
-                <div class="row g-0 vistaProducto">
+                <div class="row g-0">
                     <div class="col-4 col-md-12">
                         <img src="{{servicio.imagen.url}}" class="img-fluid rounded-start">
                     </div>
@@ -37,6 +44,7 @@
                             <div class="d-flex justify-content-left">
                                 <a href="{% url 'carro:agregar' servicio.id %}" class="btn btn-success">Añadir al
                                     carro</a>
+                                <button class="btn btn-info" onclick="openModal('{{ servicio.id }}')">Ver más</button>
                             </div>
                         </div>
                     </div>
@@ -48,5 +56,17 @@
     </div>
 </div>
 
+<!--INICIO MODAL-->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitulo"></h2>
+        <img id="modalImg" class="img-fluid rounded">
+        <h1 class="text-primary">Precio: <span id="modalPrecio"></span></h1>
+    </div>
+</div>
+<!--FIN MODAL-->
+
+<script src="{% static 'app/js/modal.js' %}"></script>
 
 {% endblock %}
