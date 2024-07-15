@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect  # Añadir redirect
+from django.shortcuts import render, redirect
 from servicios.models import Servicio
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, authenticate, login as auth_login
@@ -27,12 +27,12 @@ def mangas(request):
     return render(request, 'app/mangas.html', {'servicios' : servicios})
 
 
-def contacto(request):
-    return render(request, 'app/contacto.html')
-
-
 def login(request):
     return render(request, 'registration/login.html')
+
+
+def contacto(request):
+    return render(request, 'app/contacto.html')
 
 
 def registro(request):
@@ -46,7 +46,6 @@ def registro(request):
         if user_creation_form.is_valid():
             user_creation_form.save()
 
-            # Aquí aseguramos que estamos autenticando correctamente al usuario
             username = user_creation_form.cleaned_data['username']
             password = user_creation_form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
