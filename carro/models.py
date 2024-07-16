@@ -18,5 +18,4 @@ class DetalleCompra(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f'Detalle {self.id} - Compra {self.compra.id}'
-
+        return f'Detalle {self.id} - {self.compra.usuario.username} compró {self.cantidad} de {self.producto.titulo}'

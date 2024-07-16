@@ -21,10 +21,8 @@ DC Comics Sharingann
 <div class="container">
     <div style="float: right;">
         {% include "carro/widget.html" %}
-
     </div>
 </div>
-
 
 <div class="container">
     <div class="row">
@@ -34,15 +32,15 @@ DC Comics Sharingann
             <div class="card h-100">
                 <div class="row g-0">
                     <div class="col-4 col-md-12">
-                        <img src="{{servicio.imagen.url}}" class="img-fluid rounded-start">
+                        <img src="{{ servicio.imagen.url }}" class="img-fluid rounded-start">
                     </div>
                     <div class="col-8 col-md-12">
                         <div class="card-body">
-                            <h5 class="card-title">{{servicio.titulo}}</h5>
-                            <h1 class="text-primary">Precio: <span class="precio">${{servicio.precio}}</span></h1>
+                            <h5 class="card-title">{{ servicio.titulo }}</h5>
+                            <h1 class="text-primary">Precio: <span class="precio">${{ servicio.precio }}</span></h1>
+                            <p class="card-text"><small class="text-body-secondary">{{servicio.contenido}}</small></p>
                             <div class="d-flex justify-content-left">
-                                <a href="{% url 'carro:agregar' servicio.id %}" class="btn btn-success">Añadir al
-                                    carro</a>
+                                <a href="{% url 'carro:agregar' servicio.id %}" class="btn btn-success">Añadir al carro</a>
                                 <button class="btn btn-info" onclick="openModal('{{ servicio.id }}')">Ver más</button>
                             </div>
                         </div>
@@ -67,6 +65,4 @@ DC Comics Sharingann
 <!--FIN MODAL-->
 
 <script src="{% static 'app/js/modal.js' %}"></script>
-
-
 {% endblock %}
