@@ -9,12 +9,6 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-// Cuando el usuario haga clic fuera del modal, cerrarlo
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 
 // Función para abrir el modal y mostrar los detalles del producto
 function openModal(productId) {
@@ -29,3 +23,4 @@ function openModal(productId) {
 
     modal.style.display = "block";
 }
+
