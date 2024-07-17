@@ -13,40 +13,30 @@ Marvel Comics Sharingann
 <h1 class="text-center">MARVEL COMICS</h1>
 <br>
 
-<div class="container">
-    <div style="float: right;">
-        {% include "carro/widget.html" %}
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <!--INICIO-CARD-PRODUCTOS-->
-        {% for servicio in servicios %}
-        <div class="col-12 col-md-6 col-lg-4 mb-3" data-id="{{ servicio.id }}">
-            <div class="card h-100">
-                <div class="row g-0">
-                    <div class="col-4 col-md-12">
-                        <img src="{{ servicio.imagen.url }}" class="img-fluid rounded-start">
-                    </div>
-                    <div class="col-8 col-md-12">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ servicio.titulo }}</h5>
-                            <h1 class="text-primary">Precio: <span class="precio">${{ servicio.precio }}</span></h1>
-                            <p class="card-text"><small class="text-body-secondary">{{servicio.contenido}}</small></p>
-                            <div class="d-flex justify-content-left">
-                                <a href="{% url 'carro:agregar' servicio.id %}" class="btn btn-success">Añadir al carro</a>
-                                <button class="btn btn-info" onclick="openModal('{{ servicio.id }}')">Ver más</button>
-                            </div>
-                        </div>
+<!--INICIO-CARD-PRODUCTOS-->
+{% for servicio in servicios %}
+<div class="col-12 col-md-6 col-lg-4 mb-3" data-id="{{ servicio.id }}">
+    <div class="card h-100">
+        <div class="row g-0">
+            <div class="col-4 col-md-12">
+                <img src="{{ servicio.imagen.url }}" class="img-fluid rounded-start">
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="card-body">
+                    <h5 class="card-title">{{ servicio.titulo }}</h5>
+                    <h1 class="text-primary">Precio: <span class="precio">${{ servicio.precio }}</span></h1>
+                    <p class="card-text"><small class="text-body-secondary">{{servicio.contenido}}</small></p>
+                    <div class="d-flex justify-content-left">
+                        <a href="{% url 'carro:agregar' servicio.id %}" class="btn btn-success">Añadir al carro</a>
+                        <button class="btn btn-info" onclick="openModal('{{ servicio.id }}')">Ver más</button>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
-        <!--FIN-CARD-PRODUCTOS-->
     </div>
 </div>
+{% endfor %}
+<!--FIN-CARD-PRODUCTOS-->
 
 <!--INICIO MODAL-->
 <div id="productModal" class="modal">
